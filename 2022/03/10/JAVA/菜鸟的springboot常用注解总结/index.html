@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>菜鸟的springboot常用注解总结 | α-Hの杂货铺</title><meta name="keywords" content="JAVA"><meta name="author" content="α-H"><meta name="copyright" content="α-H"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="说明@SpringBootApplication@Component、@Service、@Controller、@Repository@ResponseBody@RestController@AutoWired、@Qualifier、@Resource@RequestMapping、@GetMapping、@PostMapping@Value、@ConfigurationProperties、@P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="菜鸟的springboot常用注解总结">
+<meta property="og:url" content="https://github.com/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="α-Hの杂货铺">
+<meta property="og:description" content="说明@SpringBootApplication@Component、@Service、@Controller、@Repository@ResponseBody@RestController@AutoWired、@Qualifier、@Resource@RequestMapping、@GetMapping、@PostMapping@Value、@ConfigurationProperties、@P">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picsum.photos/300">
+<meta property="article:published_time" content="2022-03-10T11:22:35.000Z">
+<meta property="article:modified_time" content="2022-03-10T15:17:54.023Z">
+<meta property="article:author" content="α-H">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picsum.photos/300"><link rel="shortcut icon" href="/ardentupo/img/1.jpg"><link rel="canonical" href="https://github.com/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/ardentupo/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/ardentupo/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: α-H","link":"链接: ","source":"来源: α-Hの杂货铺","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '菜鸟的springboot常用注解总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-03-10 23:17:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/ardentupo/img/fac.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/ardentupo/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/ardentupo/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/ardentupo/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ardentupo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picsum.photos/300')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/ardentupo/">α-Hの杂货铺</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ardentupo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/ardentupo/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">菜鸟的springboot常用注解总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-10T15:17:54.023Z" title="更新于 2022-03-10 23:17:54">2022-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/ardentupo/categories/JAVA/">JAVA</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="菜鸟的springboot常用注解总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>说明<br>@SpringBootApplication<br>@Component、@Service、@Controller、@Repository<br>@ResponseBody<br>@RestController<br>@AutoWired、@Qualifier、@Resource<br>@RequestMapping、@GetMapping、@PostMapping<br>@Value、@ConfigurationProperties、@PropertySource<br>@Configuration、@Bean<br>@RequestParam、@RequestBody、@PathVariable、@RequestHeader、@CookieValue<br>说明<br>更新时间：2020&#x2F;8&#x2F;12 22:14，更新了@RequestParam等注解<br>更新时间：2020&#x2F;8&#x2F;6 18:00，更新了@AutoWired等注解<br>更新时间：2020&#x2F;8&#x2F;2 17:32，更新了@SpringBootApplication等注解</p>
+<p>本文主要对网上的springboot常见注解和自己本人在学习的过程中遇到的注解的一次总结，本文会持续更新，不断地扩充</p>
+<p>本文仅为记录学习轨迹，如有侵权,联系删除</p>
+<p>@SpringBootApplication<br>包含@Configuration、@EnableAutoConfiguration、@ComponentScan通常用在主类上；</p>
+<p>相关注解    说明<br>@ComponentScan    用来自动扫描被这些注解标识的类，最终生成ioc容器里的bean，默认扫描范围是@ComponentScan注解所在配置类包及子包的类<br>@SpringBootConfiguration    与@Configuration作用相同，都是用来声明当前类是一个配置类，这里表明是springboot主类使用的配置类<br>@EnableAutoConfiguration    是springboot实现自动化配置的核心注解，通过这个注解把spring应用所需的bean注入容器中<br>@Component、@Service、@Controller、@Repository<br>这几个注解放在一起是因为功能基本一样的，都是将类注入到spring容器中，只不过它们使用的场景不同，被@Component,@Service,@Controller,@Repository注解标注的类，这些类会被纳入进spring容器中管理。</p>
+<p>注解    说明<br>@Repository    持久层（dao）注入spring容器<br>@Service    业务逻辑层（server）注入spring容器<br>@Controller    控制层（controller）注入spring容器<br>@Component    普通pojo注入spring容器<br>@ResponseBody<br>@ResponseBody可以作用在方法上或类上，表示该方法的返回结果直接写入 HTTP response body 中，而不会被解析为跳转路径，即不会经过视图解析器，返回什么数据即在页面输入什么数据。</p>
+<p>注解    说明<br>@ResponseBody    @ResponseBody的作用其实是将java对象转为json格式的数据。<br>测试如下</p>
+<p>@RestController<br>该注解是@Controller和@ResponseBody的结合体，一般用于类，作用等于在类上面添加了@ResponseBody和@Controller</p>
+<p>@AutoWired、@Qualifier、@Resource<br>这3个注解都是基于注解方式进行自动装配，在容器里面将查找到的bean返回，一般@AutoWired用得最多，@Qualifier则需要配合@AutoWired使用，@Resource则是可以通过名字进行自动装配</p>
+<p>注解    说明<br>@AutoWired    @Autowired默认按类型装配，如果发现找到多个bean，则按照name方式比对，如果还有多个，则报出异常<br>@Qualifier    spring的注解，按名字注入 一般当出现两个及以上bean时,不知道要注入哪个，结合@AutoWired使用<br>@Resource    默认按名称注入例如@Resource(name &#x3D; “zhaozhao”)则根据name属性注入找不到则报错，若无name属性则根据属性名称注入，如果匹配不成功则按照类型匹配匹配不成功则报错。<br>@AutoWired</p>
+<p>@Qualifier<br>当有一个接口的多个实现类时，只用@AutoWired会报错，因为它有多个接口的实现类，不知道你要找哪一个，这个时候就需要在注入bean的时候起个名字，然后用@Qualifier注解指定哪一个bean(按照名字注入与装配)</p>
+<p>@Resource<br>该注解的使用相当于@AutoWired和@Qualifier配合使用的效果</p>
+<p>@RequestMapping、@GetMapping、@PostMapping<br>这3个注解功能也是类似的，通过这3个注解来映射请求，也就是通过它来指定控制器可以处理哪些URL请求，用在方法上，可以通过配置的url进行访问</p>
+<p>注解    说明<br>@RequestMapping    @RequestMapping（url），通过该注解就可以通过配置的url进行访问，方式可以是get或post请求，两种方式均可<br>@GetMapping    @GetMapping（url） ，功能类似的，只是这个限定了只能是Get请求<br>@PostMapping    @PostMapping（url），功能类似的，只是这个限定了只能是Post请求<br>@RequestMapping<br>发起get请求或者post请求都可以</p>
+<p>@GetMapping<br>只能用get请求</p>
+<p>@PostMapping<br>只能发起post请求</p>
+<p>@Value、@ConfigurationProperties、@PropertySource<br>注解    说明<br>@Value    用于获取bean的属性，一般用于读取配置文件的数据，作用在变量上<br>@ConfigurationProperties    用于注入Bean属性，然后再通过当前Bean获取注入值，作用在类上<br>@PropertySource    用于指定要读取的配置文件，可以和@Value或@ConfigurationProperties配合使用<br>注意：@PropertySource不支持yml文件读取。</p>
+<p>@Value<br>这里用yml配置文件进行演示，propres配置文件也是同样的效果，在application.yml配置文件里设置开发环境的的配置文件（dev），这样用@Value获取到的就是开发环境的配置文件的数据，切换成生产环境（pro）则获取到的是生产环境的数据</p>
+<p>@ConfigurationProperties<br>该注解可以直接注入整个类的数据，作用于类</p>
+<p>配置文件如下，这里使用pro环境</p>
+<p>测试</p>
+<p>@PropertySource</p>
+<p>注意：@PropertySource不支持yml文件读取。<br>配置文件如下：people.properties</p>
+<p>测试</p>
+<p>当然@PropertySource还可以和@Value配合使用，即一个一个注入值。</p>
+<p>@Configuration、@Bean<br>@Configuration作用于类上面，表明这是一个配置类，@Bean产生一个Bean对象加入Spring IOC容器</p>
+<p>注意：@Configuration标注在类上，相当于把该类作为spring的xml配置文件中，作用为：配置spring容器(应用上下文)</p>
+<p>注解    说明<br>@Configuration    作用于类上表示这是一个配置类，可理解为用spring的时候xml里面的&lt; beans&gt;标签<br>@Bean    产生bean对象加入容器，作用于方法，可理解为用spring的时候xml里面的标签<br>一般这两个注解同时配合使用</p>
+<p>新建配置类，将User加入容器，并自定义生命周期</p>
+<p>测试</p>
+<p>@RequestParam、@RequestBody、@PathVariable、@RequestHeader、@CookieValue<br>这3个注解放在一起主要是经常在控制层用来接收参数的</p>
+<p>注解    说明<br>@RequestParam    获取查询参数。即url?name&#x3D;这种形式<br>@PathVariable    获取路径参数。即url&#x2F;{id}这种形式。<br>@RequestParam    获取Body的参数，一般用于post获取参数<br>@RequestHeader    获取请求头的信息<br>@CookieValue    获取Cookie的信息<br>@RequestParam<br>@RequestParam主要用于接收url?后面的参数，get或post请求，只要后面的url?有参数都可以获取到对应的参数</p>
+<p>@RequestParam注解有几个比较重要的属性，required 表示是否必须，默认为 true，必须。defaultValue 可设置请求参数的默认值。value 为接收url的参数名（相当于key值）。</p>
+<p>示例代码如下</p>
+<pre><code>@GetMapping(&quot;/requestParam&quot;)
+@ResponseBody
+public Map&lt;String, String&gt; requestParam(
+        UserDto userDto,//通过一个实体类来接收，字段名必须一致
+        @RequestParam(value = &quot;id&quot;, required = false) String userId,
+        @RequestParam(value = &quot;name&quot;, required = false) String userName,
+        @RequestParam(value = &quot;pageIndex&quot;, required = true, defaultValue = &quot;1&quot;) String pageIndex,
+        @RequestParam(value = &quot;pageSize&quot;, required = true, defaultValue = &quot;5&quot;) String pageSize) &#123;
+
+    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    map.put(&quot;userDto&quot;,userDto.toString());
+    map.put(&quot;id&quot;, userId);
+    map.put(&quot;name&quot;, userName);
+    map.put(&quot;pageIndex&quot;, pageIndex);
+    map.put(&quot;pageSize&quot;, pageSize);
+    return map;
+&#125;
+</code></pre>
+<p>运行</p>
+<p>@PathVariable<br>该注解主要用于获取路径参数，像url&#x2F;{id}&#x2F;{name}这种形式的参数都可以，get获取post请求均可</p>
+<p>示例代码如下：</p>
+<pre><code>@PostMapping(&quot;/pathVariable/&#123;id&#125;/&#123;name&#125;&quot;)
+@ResponseBody
+public Map&lt;String, String&gt; pathVariable(
+        @PathVariable(name = &quot;id&quot;) String userId,
+        @PathVariable(name = &quot;name&quot;) String userName) &#123;
+
+    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+    map.put(&quot;id&quot;, userId);
+    map.put(&quot;name&quot;, userName);
+    return map;
+&#125;
+</code></pre>
+<p>@RequestBody<br>该注解用于获取请求体数据（body）,get没有请求体，故而一般用于post请求</p>
+<p>示例代码如下：</p>
+<pre><code>@PostMapping(&quot;/test01&quot;)
+@ResponseBody
+public UserDto test01(@RequestBody UserDto userDto) &#123;
+    return userDto;
+&#125;
+
+@PostMapping(&quot;/test02&quot;)
+@ResponseBody
+public String test02(@RequestBody String str) &#123;
+    return str;
+&#125;
+</code></pre>
+<p>运行结果</p>
+<p>注意，如果要传多个参数过去只能将其封装成一个类，如果是出现了多个@RequestBody注解访问的时候会报400错误，例如下面这种代码就是错误的</p>
+<pre><code>@PostMapping(&quot;/requestBody&quot;)
+@ResponseBody
+public Map&lt;String,String&gt; requestBody(
+        @RequestBody(required = true) String id,
+        @RequestBody(required = true) String name,
+        @RequestBody(required = false) String sex,
+        @RequestBody(required = false) String age
+        )&#123;
+
+    Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
+    map.put(&quot;id&quot;,&quot;id&quot;);
+    map.put(&quot;name&quot;,&quot;name&quot;);
+
+    return map;
+&#125;
+</code></pre>
+<p>@RequestHeader<br>示例代码如下</p>
+<pre><code>@PostMapping(&quot;/requestHeader&quot;)
+@ResponseBody
+public String requestBody03(@RequestHeader(name = &quot;Content-Type&quot;) String contentType)&#123;
+    return contentType;
+&#125;
+</code></pre>
+<p>运行结果</p>
+<p>@CookieValue<br>由于postman模拟cookie本人不会弄，只能用别人的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/demo3&quot;)</span><br><span class="line">public void demo3(@RequestHeader(name = &quot;myHeader&quot;) String myHeader,</span><br><span class="line">        @CookieValue(name = &quot;myCookie&quot;) String myCookie) &#123;</span><br><span class="line">    System.out.println(&quot;myHeader=&quot; + myHeader);</span><br><span class="line">    System.out.println(&quot;myCookie=&quot; + myCookie);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Lombok注解    应用场景<br>@Data    Getter、Setter、RequiredArgsConstructor、ToString、EqualsAndHashCode<br>@Table    当数据库的表名和实体类不一致时，name 属性可以指定数据库的表，这样实体类和数据库的表就可以有映射关系了<br>@NoArgsConstructor    无参构造方法<br>@AllArgsConstructor    有参构造方法<br>@Builder    类名.builder()就可以进行属性填充<br>@RequiredArgsConstructor(onConstructor &#x3D; @__(@Autowired))    注入场景<br>@Cleanup    关流</p>
+<p>SpringBoot注解    应用场景<br>@RestControllere    Controller层<br>@Service    逻辑处理层<br>@@Repository    持久理层<br>@Component    自定义类，例如工具类<br>@GetMapping    GET请求<br>@PostMapping    POST请求<br>@ResponseBody    返回接json字符串处理<br>@PathVariable    url&#x2F;{参数}<br>@RestController    @Controller+@ResponseBody<br>@Autowired    注入<br>@Resource    注入<br>@SpringBootApplication    启动类注解<br>@MapperScan    扫描mybatis那些包里面的接口<br>@RequestParam    url?参数&#x3D;value<br>@Param ()    mybatis注解</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">α-H</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/">https://github.com/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/ardentupo" target="_blank">α-Hの杂货铺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/ardentupo/tags/JAVA/">JAVA</a></div><div class="post_share"><div class="social-share" data-image="https://picsum.photos/300" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/ardentupo/2022/03/10/JAVA/restful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/"><img class="prev-cover" src="https://picsum.photos/300" onerror="onerror=null;src='/ardentupo/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">restful接口设计规范总结</div></div></a></div><div class="next-post pull-right"><a href="/ardentupo/2022/03/10/hello-world/"><img class="next-cover" src="https://picsum.photos/300" onerror="onerror=null;src='/ardentupo/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/ardentupo/2022/03/10/JAVA/restful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/" title="restful接口设计规范总结"><img class="cover" src="https://picsum.photos/300" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">restful接口设计规范总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/ardentupo/img/fac.jpg" onerror="this.onerror=null;this.src='/ardentupo/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">α-H</div><div class="author-info__description">喜欢创意、技术、二次元、音乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/ardentupo/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/ardentupo/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/ardentupo/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a id="card-info-btn" href="https://github.com/ardentupo"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ardentupo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a_mazin@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/axios%E4%BA%94%E7%A7%8D%E8%AF%B7%E6%B1%82/" title="axios五种请求"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/ardentupo/img/404.jpg'" alt="axios五种请求"/></a><div class="content"><a class="title" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/axios%E4%BA%94%E7%A7%8D%E8%AF%B7%E6%B1%82/" title="axios五种请求">axios五种请求</a><time datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/vuex%20%E4%B8%AD%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0mapState%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="vuex 中辅助函数mapState的基本用法详解"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/ardentupo/img/404.jpg'" alt="vuex 中辅助函数mapState的基本用法详解"/></a><div class="content"><a class="title" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/vuex%20%E4%B8%AD%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0mapState%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="vuex 中辅助函数mapState的基本用法详解">vuex 中辅助函数mapState的基本用法详解</a><time datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E4%BA%A4%E4%BA%92/" title="前后端接口交互"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/ardentupo/img/404.jpg'" alt="前后端接口交互"/></a><div class="content"><a class="title" href="/ardentupo/2022/03/10/%E5%89%8D%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E4%BA%A4%E4%BA%92/" title="前后端接口交互">前后端接口交互</a><time datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ardentupo/2022/03/10/JAVA/restful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/" title="restful接口设计规范总结"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/ardentupo/img/404.jpg'" alt="restful接口设计规范总结"/></a><div class="content"><a class="title" href="/ardentupo/2022/03/10/JAVA/restful%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E6%80%BB%E7%BB%93/" title="restful接口设计规范总结">restful接口设计规范总结</a><time datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/" title="菜鸟的springboot常用注解总结"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/ardentupo/img/404.jpg'" alt="菜鸟的springboot常用注解总结"/></a><div class="content"><a class="title" href="/ardentupo/2022/03/10/JAVA/%E8%8F%9C%E9%B8%9F%E7%9A%84springboot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%80%BB%E7%BB%93/" title="菜鸟的springboot常用注解总结">菜鸟的springboot常用注解总结</a><time datetime="2022-03-10T11:22:35.000Z" title="发表于 2022-03-10 19:22:35">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://picsum.photos/300')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By α-H</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/ardentupo/js/utils.js"></script><script src="/ardentupo/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
