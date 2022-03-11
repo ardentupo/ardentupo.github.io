@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>搭建vue项目 | α-Hの杂货铺</title><meta name="keywords" content="前端"><meta name="author" content="α-H"><meta name="copyright" content="α-H"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="二、搭建vue项目1、全局安装 vue cli，vue cli 是一个脚手架工具，用于生成一个基础的vue应用。运行:npm install vue-cli -g  2、Hbuilder新建vue项目  3.进入项目所在文件夹，安装vue项目所需要的依赖包  运行：npm run dev或者cnpm run dev将项目跑起来，发现报错，这是因为在package.json中丢失了dev。这个时候只">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建vue项目">
+<meta property="og:url" content="https://ardentupo.github.io/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="α-Hの杂货铺">
+<meta property="og:description" content="二、搭建vue项目1、全局安装 vue cli，vue cli 是一个脚手架工具，用于生成一个基础的vue应用。运行:npm install vue-cli -g  2、Hbuilder新建vue项目  3.进入项目所在文件夹，安装vue项目所需要的依赖包  运行：npm run dev或者cnpm run dev将项目跑起来，发现报错，这是因为在package.json中丢失了dev。这个时候只">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picsum.photos/300">
+<meta property="article:published_time" content="2022-03-11T05:14:35.000Z">
+<meta property="article:modified_time" content="2022-03-11T05:14:42.048Z">
+<meta property="article:author" content="α-H">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picsum.photos/300"><link rel="shortcut icon" href="/image/1.jpg"><link rel="canonical" href="https://ardentupo.github.io/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: α-H","link":"链接: ","source":"来源: α-Hの杂货铺","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '搭建vue项目',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-11 13:14:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/fac.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://picsum.photos/300')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">α-Hの杂货铺</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">搭建vue项目</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-11T05:14:35.000Z" title="发表于 2022-03-11 13:14:35">2022-03-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-11T05:14:42.048Z" title="更新于 2022-03-11 13:14:42">2022-03-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="搭建vue项目"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="二、搭建vue项目"><a href="#二、搭建vue项目" class="headerlink" title="二、搭建vue项目"></a>二、搭建vue项目</h2><p>1、全局安装 vue cli，vue cli 是一个脚手架工具，用于生成一个基础的vue应用。<br>运行:<code>npm install vue-cli -g</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20191230134153452.png" alt="在这里插入图片描述"></p>
+<p>2、Hbuilder新建vue项目</p>
+<p><img src="https://img-blog.csdnimg.cn/20191230135641376.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTEyODIy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>3.进入项目所在文件夹，安装vue项目所需要的依赖包</p>
+<p><img src="https://img-blog.csdnimg.cn/20191230142744474.png" alt="在这里插入图片描述"></p>
+<p>运行：npm run dev或者cnpm run dev将项目跑起来，发现报错，这是因为在package.json中丢失了dev。这个时候只需通过”vue init webpack -g” 把丢失的dev下载过来，若遇下载缓慢，则执行cpnm install –save-dev webpack</p>
+<p><img src="https://img-blog.csdnimg.cn/20191230142106330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTEyODIy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191230143058547.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNTEyODIy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>三、vue项目目录</p>
+<p>1、build：构建脚本目录<br>1）build.js &#x3D;&#x3D;&gt; 生产环境构建脚本；<br>2）check-versions.js &#x3D;&#x3D;&gt; 检查npm，node.js版本；<br>3）utils.js &#x3D;&#x3D;&gt; 构建相关工具方法；<br>4）vue-loader.conf.js &#x3D;&#x3D;&gt; 配置了css加载器以及编译css之后自动添加 前缀；<br>5）webpack.base.conf.js &#x3D;&#x3D;&gt; webpack基本配置；<br>6）webpack.dev.conf.js &#x3D;&#x3D;&gt; webpack开发环境配置；<br>7）webpack.prod.conf.js &#x3D;&#x3D;&gt; webpack生产环境配置；<br>2、config：项目配置<br>1）dev.env.js &#x3D;&#x3D;&gt; 开发环境变量；<br>2）index.js &#x3D;&#x3D;&gt; 项目配置文件；<br>3）prod.env.js &#x3D;&#x3D;&gt; 生产环境变量；<br>3、node_modules：npm 加载的项目依赖模块<br>4、src：这里是我们要开发的目录，基本上要做的事情都在这个目录里。里面包含了几个目录及文件：<br>1）assets：资源目录，放置一些图片或者公共js、公共css。这里的资源会被webpack构建；<br>2）components：组件目录，我们写的组件就放在这个目录里面；<br>3）router：前端路由，我们需要配置的路由路径写在index.js里面；<br>4）App.vue：根组件；<br>5）main.js：入口js文件；<br>5、static：静态资源目录，如图片、字体等。不会被webpack构建<br>6、index.html：首页入口文件，可以添加一些 meta 信息等<br>7、package.json：npm包配置文件，定义了项目的npm脚本，依赖包等信息<br>8、README.md：项目的说明文档，markdown 格式<br>9、.xxxx文件：这些是一些配置文件，包括语法配置，git配置等</p>
+<ul>
+<li>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，相当于是一个仓库，存放公共数据的，任何组件都可以使用存放在仓库里面的数据</li>
+</ul>
+<p>.vuex由五大部分组成</p>
+<p>state：定义数据，使用方法是通过：this.$store.state.xxx(方法名)<br>actions：可以包含异步操作，使用方法是通过：<br>this.$store.dispatch.xxx(方法名)<br>mutations：唯一可以修改state数据的场所，使用方法是通过：this.$store.commit.xxx(方法名)<br>getters：类似于vue组件中的计算属性，对state数据进行计算（会被缓存），使用方法是：this.$store.getters.xxx(方法名)<br>modules:模块化管理store（仓库），每个模块拥有自己的 state、mutation、action、getter<br>2.下面说下封装vuex的核心</p>
+<p>第一步：在src文件夹下面创建store的文件夹，然后在这个文件夹下面创建四个js文件<br>state:定义公共数据<br>actions：操作异步的数据<br>mutations：操作同步的数据，也是唯一一个可以直接改变state里面定义的数据<br>getters：类似于vue组件中的计算属性，对state数据进行计算（会被缓存）<br>index:把前面封装好的文件都引入到这个文件里面，然后抛出</p>
+<p>下面说下封装vuex的好处和具体的思路</p>
+<p>我们在用vue脚手架3.0创建项目的时候，他会自动帮我们在src这个文件夹下面生成一个store文件夹，下面有一个index.js这个文件，index.js这个文件里面有5个属性，就是我们用vuex的时候，所用到的5个属性，把这5个属性放在同一个文件里面，适合开发中小型项目的时候使用，因为需要公用的数据不多，写在一个文件里面就可以，但是开发一个中大型项目的话，我们需要在vuex里面定义的数据比较多，所以我们就把需要的5个属性拆分出来，拆分成单独的文件，这样能在以后项目的维护，或者修改的时候比较方便，每个文件定义不同的数据，下面我们来分析一下</p>
+<p>state：可以把项目中需要定义在state里面的数据，都定义在这个文件里面<br>action：他是一个异步的操作，把项目中异步的请求全部放在这个文件里面，如果要修改state里面定义的数据，必须要通过commit来调用mutations里面的方法，才能修改state里面的数据，不能直接修改，在组件里面需要action里面的数据，可以通过tthis.$store.dispatch+需要调用的方法名来获取<br>mutations：他是一个同步的操作，也是唯一一个可以直接修改state里面定义的数据，可以把项目中同步的数据放在这个文件里面，在组件中需要通过this.$store.commit+需要调用的方法名来获取<br>getters：计算属性，可以把项目中需要计算的数据放在这个文件里面，统一管理，在组建中通过this.$store.getters+调用的方法名可以获取到数据</p>
+<h1 id="按需引入我们需要的框架，（移动端：vant-ui）（后台管理：element-ui）"><a href="#按需引入我们需要的框架，（移动端：vant-ui）（后台管理：element-ui）" class="headerlink" title="按需引入我们需要的框架，（移动端：vant-ui）（后台管理：element-ui）"></a>按需引入我们需要的框架，（移动端：vant-ui）（后台管理：element-ui）</h1><p><strong>-vant-ui：移动端</strong></p>
+<p>安装指令</p>
+<blockquote>
+<p>npm i babel-plugin-import -D</p>
+</blockquote>
+<p>在babel.config.js 设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 对于使用 babel7 的用户，可以在 babel.config.js 中配置</span><br><span class="line">const plugins = [</span><br><span class="line">  [</span><br><span class="line">    &#x27;import&#x27;,</span><br><span class="line">    &#123;</span><br><span class="line">      libraryName: &#x27;vant&#x27;,</span><br><span class="line">      libraryDirectory: &#x27;es&#x27;,</span><br><span class="line">      style: true</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x27;vant&#x27;</span><br><span class="line">  ]</span><br><span class="line">]</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  presets: [[&#x27;@vue/cli-plugin-babel/preset&#x27;, &#123; useBuiltIns: &#x27;usage&#x27;, corejs: 3 &#125;]],</span><br><span class="line">  plugins</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在src文件夹下面创建一个plugins文件夹，然后下面创建一个index.js文件，里面统一管理我们需要用的组件</li>
+</ul>
+<p>&#x2F;&#x2F; 按需全局引入 vant组件<br>import Vue from ‘vue’<br>import { Button, List, Cell, Tabbar, TabbarItem } from ‘vant’<br>Vue.use(Button)<br>Vue.use(Cell)<br>Vue.use(List)<br>Vue.use(Tabbar).use(TabbarItem)</p>
+<p>路由封装<br>前言：大家都知道，我们在搭建好项目以后，src文件夹下面会生成一个router这个文件夹，然后下面有一个index.js这个文件，这个里面就是我们做项目需要放路由的地方，如果我们的项目比较大，跳转的页面比较多的话，把全部的路由都放在这一个文件里面，后期优化不好优化，在做项目的时候需要找路由的时候也不好找，或者说在后期我们需要改路由的时候也不好改，所以我们就选择路由封装是最好不过的啦。。。注意：如果项目比较小，跳转的页面不是很多的情况下，就没必要封装路由</p>
+<p>下面说下路由封装的思路，这个很简单，大家一看就会</p>
+<p>我一般在做项目时候，遇到跳转页面多的时候呢，我会把路由分成几个文件来封装，比如现在我做的这个后台管理系统，有10个页面，每个页面里面肯定有很多需要跳转的页面，这时候我会在router这个文件夹下面创建10个文件，然后每个文件对应一个页面，比如现在首页的这个页面，就在router这个文件夹下面创建一个home.js文件，然后把首页需要跳转的的路由全部写在这个文件里面，然后把他引入到index.js这个文件里面就可以啦，这样呢，在做项目，或者以后优化的时候就比较好找，如果以后我们要优化项目，需要优化首页的时候，在我们需要优化首页这个页面路由的时候，我们就可以去home.js这个文件里面去找就可以啦</p>
+<ul>
+<li>然后在main.js全局文件里面引入，抛出，在全局就可以用啦</li>
+<li>import ‘.&#x2F;plugins&#x2F;vant.js’</li>
+</ul>
+<p>8.封装组件<br>前言：大家都知道，vue项目都是单页面，都是组件拼接起来的，如果说我们在做中大型项目的时候，页面比较多，如果我们把这些页面都写在一个文件里面，就比较麻烦，修改的时候、找的时候、或者在优化项目的时候找起来比较麻烦，所以我们就把页面分成一个一个的组件，封装起来，然后引入到渲染的页面，这样的话，在我们写项目、修改。以后优化项目的时候，就比较方便</p>
+<p>封装组件的话分为两种</p>
+<p>一个是页面组件的封装<br>一个是公共组件的封装</p>
+<h1 id="代码优化：节流防抖，函数防抖，图片懒加载，keep-alive缓存不活动的组件"><a href="#代码优化：节流防抖，函数防抖，图片懒加载，keep-alive缓存不活动的组件" class="headerlink" title="代码优化：节流防抖，函数防抖，图片懒加载，keep-alive缓存不活动的组件"></a>代码优化：节流防抖，函数防抖，图片懒加载，keep-alive缓存不活动的组件</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">α-H</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ardentupo.github.io/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/">https://ardentupo.github.io/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ardentupo.github.io" target="_blank">α-Hの杂货铺</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post_share"><div class="social-share" data-image="https://picsum.photos/300" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/11/JAVA/springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%B3%A8%E8%A7%A3/"><img class="prev-cover" src="https://picsum.photos/300" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">spring自动配置</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/11/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><img class="next-cover" src="https://picsum.photos/300" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/%E5%89%8D%E7%AB%AF/axios%E4%BA%94%E7%A7%8D%E8%AF%B7%E6%B1%82/" title="axios五种请求"><img class="cover" src="https://picsum.photos/300" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">axios五种请求</div></div></a></div><div><a href="/2022/03/10/%E5%89%8D%E7%AB%AF/%E5%89%8D%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E4%BA%A4%E4%BA%92/" title="前后端接口交互"><img class="cover" src="https://picsum.photos/300" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">前后端接口交互</div></div></a></div><div><a href="/2022/03/10/%E5%89%8D%E7%AB%AF/vuex%20%E4%B8%AD%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0mapState%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="vuex 中辅助函数mapState的基本用法详解"><img class="cover" src="https://picsum.photos/300" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">vuex 中辅助函数mapState的基本用法详解</div></div></a></div><div><a href="/2022/03/10/%E5%89%8D%E7%AB%AF/js%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6/" title="js基础框架"><img class="cover" src="https://picsum.photos/300" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">js基础框架</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/fac.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">α-H</div><div class="author-info__description">喜欢创意、技术、二次元、音乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ardentupo"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/ardentupo" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:a_mazin@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">二、搭建vue项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E7%9A%84%E6%A1%86%E6%9E%B6%EF%BC%8C%EF%BC%88%E7%A7%BB%E5%8A%A8%E7%AB%AF%EF%BC%9Avant-ui%EF%BC%89%EF%BC%88%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%EF%BC%9Aelement-ui%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">按需引入我们需要的框架，（移动端：vant-ui）（后台管理：element-ui）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%EF%BC%9A%E8%8A%82%E6%B5%81%E9%98%B2%E6%8A%96%EF%BC%8C%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%EF%BC%8C%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%EF%BC%8Ckeep-alive%E7%BC%93%E5%AD%98%E4%B8%8D%E6%B4%BB%E5%8A%A8%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-number"></span> <span class="toc-text">代码优化：节流防抖，函数防抖，图片懒加载，keep-alive缓存不活动的组件</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/JAVA/springsecurity/" title="springsecurity"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springsecurity"/></a><div class="content"><a class="title" href="/2022/03/11/JAVA/springsecurity/" title="springsecurity">springsecurity</a><time datetime="2022-03-11T05:25:35.000Z" title="发表于 2022-03-11 13:25:35">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/JAVA/springbootWeb%E5%BC%80%E5%8F%91/" title="springbootWeb开发"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springbootWeb开发"/></a><div class="content"><a class="title" href="/2022/03/11/JAVA/springbootWeb%E5%BC%80%E5%8F%91/" title="springbootWeb开发">springbootWeb开发</a><time datetime="2022-03-11T05:15:35.000Z" title="发表于 2022-03-11 13:15:35">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/JAVA/springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%B3%A8%E8%A7%A3/" title="spring自动配置"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="spring自动配置"/></a><div class="content"><a class="title" href="/2022/03/11/JAVA/springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%B3%A8%E8%A7%A3/" title="spring自动配置">spring自动配置</a><time datetime="2022-03-11T05:15:35.000Z" title="发表于 2022-03-11 13:15:35">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/" title="搭建vue项目"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="搭建vue项目"/></a><div class="content"><a class="title" href="/2022/03/11/%E5%89%8D%E7%AB%AF/%E6%90%AD%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/" title="搭建vue项目">搭建vue项目</a><time datetime="2022-03-11T05:14:35.000Z" title="发表于 2022-03-11 13:14:35">2022-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/11/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="无题"><img src="https://picsum.photos/300" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2022/03/11/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="无题">无题</a><time datetime="2022-03-11T04:09:38.846Z" title="发表于 2022-03-11 12:09:38">2022-03-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://picsum.photos/300')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By α-H</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
